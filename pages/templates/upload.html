@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pano - Upload your image for watermarking or search" />
+  <meta name="author" content="Pano" />
+  <title>Upload Image</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+  <!-- Font Awesome icons -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="/pages/styles/main.css" rel="stylesheet" />
+
+</head>
+<body class="watermarking-page">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/">Pano</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Upload Section -->
+  <section class="section py-5" style="margin-top: 70px;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 text-center">
+          <h2 class="mb-4">Upload an Image</h2>
+          <p class="lead mb-4">Choose an image you'd like to watermark or search across the web.</p>
+
+          <form id="uploadFormElement" enctype="multipart/form-data" method="post">
+            <div class="mb-3">
+              <input type="file" id="imageInput" name="image" accept="image/*" required class="form-control" />
+            </div>
+            <input type="hidden" id="purposeInput" name="purpose" value="">
+            <div class="d-flex justify-content-center gap-3">
+              <button type="button" class="btn btn-primary btn-lg" onclick="submitTo('search')">
+                <i class="fas fa-search me-2"></i> Upload for Searching
+              </button>
+              <button type="button" class="btn btn-secondary btn-lg" onclick="submitTo('watermarking')">
+                <i class="fas fa-tint me-2"></i> Upload for Watermarking
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-4 bg-light mt-auto">
+    <div class="container">
+      <small class="text-muted">© Pano</small>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function submitTo(purpose) {
+      document.getElementById('purposeInput').value = purpose;
+      document.getElementById('uploadFormElement').action = '/upload';
+      document.getElementById('uploadFormElement').submit();
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* Laigent Main Stylesheet */
+/* Import all component stylesheets in the correct order */
+
+/* 1. Variables and Custom Properties */
+@import url('variables.css');
+
+/* 2. Base styles and reset */
+@import url('base.css');
+
+/* 3. Reusable components */
+@import url('components.css');
+
+/* 4. Layout components */
+@import url('layout.css');
+
+/* 5. Page-specific styles can be added here or in separate files */
+
+
+/* Utility classes for quick styling */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .btn {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}
